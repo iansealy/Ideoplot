@@ -42,18 +42,21 @@ DrawChromosome <- function(x,y, width, chrBands) {
   if (length(aceni) == 2) {
     allX <- c(0, 0, (width/2),0,0,0+width, 0+width,0+(width/2),0+width,0+width, 0) +x
     allY <- c(0, chrBands$V2[aceni[1]], chrBands$V3[aceni[1]],  chrBands$V3[aceni[2]], maxY, maxY, chrBands$V3[aceni[2]], chrBands$V3[aceni[1]], chrBands$V2[aceni[1]], 0,0)+y
-    nPoints <- length(allX)
-    x0 <- allX[1:nPoints-1]
-    x1 <- allX[2:nPoints]
-    y0 <- allY[1:nPoints-1]
-    y1 <- allY[2:nPoints]
-
-    if (args$topdown == TRUE) {
-      y0 <- yTop - y0
-      y1 <- yTop - y1
-    }
-    segments(x0,y0,x1,y1)
+  } else {
+    allX <- c(0, 0,    0+width, 0+width, 0) + x
+    allY <- c(0, maxY, maxY,    0,       0) + y
   }
+  nPoints <- length(allX)
+  x0 <- allX[1:nPoints-1]
+  x1 <- allX[2:nPoints]
+  y0 <- allY[1:nPoints-1]
+  y1 <- allY[2:nPoints]
+
+  if (args$topdown == TRUE) {
+    y0 <- yTop - y0
+    y1 <- yTop - y1
+  }
+  segments(x0,y0,x1,y1)
 }
 
 
