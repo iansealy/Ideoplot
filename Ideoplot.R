@@ -16,7 +16,7 @@ GetBands <- function(genomebands, chrom) {
   return(genomebands[i,])
 }
 
-require(RColorBrewer)
+require(RColorBrewer, quietly=TRUE)
 AddHeatmap <- function(x,y, width, chrBands, heatMap, nColors) {
   pal <- rev(brewer.pal(nColors, "RdBu"))
 
@@ -154,7 +154,7 @@ chromY <- rep(0.05*maxLength, nChrom)
 #
 # Setup output.
 #
-print(sprintf("opening %s", outFileName))
+#print(sprintf("opening %s", outFileName))
 pdf(outFileName, width=8,height=4)
 plot(c(), xlim=c(0,xLen), ylim=c(0,yLen), axes=F, xlab="", ylab="")
 
@@ -207,8 +207,7 @@ axisPos <- seq(0, (1+ceiling(maxLength/axisStep))*axisStep, axisStep)
 
 axis(2, at=c(1E8+chromY[1], 1E8+chromY[1]+1E8), labels=c("", ""),cex.axis=0.5, col.ticks=NA)
 mtext("100Mbp", side=2,line=0, at=1.5E8+chromY[1], cex=0.5)
-warnings()
-dev.off()
+graphics.off()
 
 
 
