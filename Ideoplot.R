@@ -126,8 +126,8 @@ if (is.null(args$heatmap) == FALSE) {
 
 
 
-chrNames <- paste("chr",c(seq(1,22),"X"),sep="")
-chrLabels <- paste(c(seq(1,22),"X", sep=""))
+chrNames <- paste(c(seq(1,25)),sep="")
+chrLabels <- paste(c(seq(1,25), sep=""))
 
 nChrom <- length(chrNames)
 maxLength <- GetMaxChromLength(bands)
