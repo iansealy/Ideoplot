@@ -1,7 +1,5 @@
 library(getopt)
 
-source("hg19Bands.R")
-
 GetBands <- function(genomebands, chrom) {
   i <- which(genomebands$V1 == chrom)
   return(genomebands[i,])
@@ -97,8 +95,6 @@ options <- matrix(c("ideobed", "i", 2, "character",
 
 args <- getopt(options)
 
-bands <- hg19Bands
-
 if (is.null(args$topdown)) {
   args$topdown <- FALSE
 } else {
@@ -111,8 +107,12 @@ if (is.null(args$out)) {
   outFileName <- args$out
 }
 
+
 if (is.null(args$ideobed)) {
-  bands <- hg19Bands } else {
+  argv <- commandArgs(trailingOnly = FALSE)
+  basedir <- dirname(substring(argv[grep("--file=", argv)], 8))
+  bands <- read.table(file.path(basedir, 'zv9.bed'))
+} else {
   bands <- read.table(args$ideobed)
 }
 
