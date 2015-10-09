@@ -76,7 +76,7 @@ DrawAnnotation <- function(x, y, s, color) {
   if (args$topdown == TRUE) {
     y <- yTop - y
   }
-  points(x, y, pch=as.numeric(s), col=color,cex=0.25)   
+  points(x, y, pch=as.numeric(s), col=color,cex=0.5)
 }
 
 DrawAnnotations <- function(x,y, stripeWidths, chrAnnot) {
