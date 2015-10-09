@@ -166,12 +166,8 @@ if (args$topdown == TRUE) {
 # Plot heatmap if one is specified.
 #
 if (is.null(args$heatmap) == FALSE) {
+  hmap$V4 <- ToBins(hmap, nBins)
   hmByChr <- lapply(seq(1,nChrom), function(i) GetByChr(hmap, chrNames[i]))
-
-  for (i in seq(1,nChrom)) {
-  
-    hmByChr[[i]]$V4 <- ToBins(hmByChr[[i]], nBins)
-  }
 
   tmp <- sapply(seq(1,nChrom), function(i) AddHeatmap(chromX[i],
                                                       chromY[i],
