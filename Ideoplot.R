@@ -18,7 +18,7 @@ GetBands <- function(genomebands, chrom) {
 
 require(RColorBrewer, quietly=TRUE)
 AddHeatmap <- function(x,y, width, chrBands, heatMap, nColors) {
-  pal <- rev(brewer.pal(nColors, "RdBu"))
+  pal <- brewer.pal(nColors, "Blues")
 
   nElem <- length(heatMap$V1)
 
