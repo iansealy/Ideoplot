@@ -111,7 +111,7 @@ if (is.null(args$out)) {
 if (is.null(args$ideobed)) {
   argv <- commandArgs(trailingOnly = FALSE)
   basedir <- dirname(substring(argv[grep("--file=", argv)], 8))
-  bands <- read.table(file.path(basedir, 'zv9.bed'))
+  bands <- read.table(file.path(basedir, 'grcz10.bed'))
 } else {
   bands <- read.table(args$ideobed)
 }
